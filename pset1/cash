@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <cs50.h>
+#include <math.h>
+
+int main(void)
+{
+    int coin_number;
+    int cents;
+    coin_number = 0;
+    float change;
+    do
+    {
+        change = get_float("How much change is owed?\n");
+    } while (change < 0);
+    
+    cents = round(change*100);
+    
+        while (cents>=25)
+        {
+            coin_number++;
+            cents=cents-25;
+        }
+        while (cents>=10)
+        {
+            coin_number++;
+            cents=cents-10;
+        }
+        while (cents>=5)
+        {
+            coin_number++;
+            cents=cents-5;
+        }
+        while (cents>=1)
+        {
+            coin_number++;
+            cents=cents-1;
+        }
+        
+    printf("%i\n", coin_number);
+}
